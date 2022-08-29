@@ -1,6 +1,6 @@
 ---
-title: "myCPU: Introduction"
-subtitle: A detailed introduction to the myCPU design
+title: "myCPU256: Introduction"
+subtitle: A detailed introduction to the myCPU256
 layout: page
 show_sidebar: false
 hide_footer: true
@@ -8,9 +8,9 @@ hide_hero: false
 hero_height: hero-minHeigth
 hero_darken: false
 ---
-Welcome to the presentation page of the myCPU project.
+[The introduction to the myCPU Project](https://mycpu.mylabpcb.com/pages/en/mycpu/introduction)
 
-myCPU is a fully modular 8-bit TTL computer/CPU with support to working and debugging at microinstruction level, built over most common logic integrated circuits, mostly TTL, and designed on PCBs.
+>I highly recommended to read the introduction to the myCPU design above to get a better understanding of the differences and improvements on the myCPU256 design and the reason to create this separate project.
 {: style="text-align: justify"}
 
 ### A learning Platform
