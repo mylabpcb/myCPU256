@@ -18,7 +18,7 @@ hero_darken: false
 Also you can find all documentation files in the downloads page: [myCPU documentation](/pages/en/mycpu/downloads/technical_docs)
 
 ### Description
-The clock module is a very accurate square wave generator following the **Ben Eater’s design**. Ben’s design is a very useful and interesting design to help in the debugging process. It provides a precise and clean clock signal at slow speed controlled with a potentiometer. The myCPU recommended component values combines with a 1M potentiometer give us control for a speed between a few Hz to 3 KHz.
+The clock module is a very accurate square wave generator following the **Ben Eater’s design**. Ben’s design is a very useful and interesting design to help in the debugging process. It provides a precise and clean clock signal at slow speed, controlled with a potentiometer. The myCPU recommended component values combined with a 1M potentiometer give us control for a speed between a few Hz to 2-3 KHz.
 {: style="text-align: justify"}
 
 >I strongly recommended to see the video lectures about the design of the clock module and the 555 operation.
@@ -34,26 +34,26 @@ The clock module is a very accurate square wave generator following the **Ben Ea
 
 [Clock logic - 8-bit computer clock - part 4](https://www.youtube.com/watch?v=SmQ5K7UQPMM&list=PLowKtXNTBypGqImE405J2565dvjafglHU){: target="_blank"}
 
-The clock module design is based on the 555 timers for all its working states. There are 3 blocks which handle these states: 
+The clock module design is based on the 555 timers for all its working duty cycle. There are 3 blocks which handle the phases of the duty cycle: 
 {: style="text-align: justify"}
 
 +	**Timer**
 +	**On/Off state**
 +	**Step by Step Cycle debugging**
 
-The **Timer** functionality is based on a 555 timer configure as an **astable oscillator**, timer speed is controlled by PDT1 in combination with R1 and C4. Using a 500K or 1M for PDT1, less value provides more fast initial speed.
+The **Timer** functionality is based on a 555 timer configure as an **Astable Oscillator**, timer speed is controlled by PDT1 in combination with R1 and C4. Using a 500K or 1M for PDT1, a small value provides more fast initial speed.
 {: style="text-align: justify"}
 
->I recommended 1M to get a slowest initial speed and see better what happens without use the cycle by cycle debugging mode.
+>I recommended 1M to get a slowest initial speed and see better what's going on without the need to use the cycle by cycle debugging mode
 {: style="text-align: justify"}
 
-R1 is a trimmer letting to configure the duty cycle of the timer. You will need an oscilloscope to adjust the balance of the lengths of the high and low part of the timer signal using the trimmer R1. The recommended value if you cannot use an oscilloscope is 270 Ω.
+R1 is a trimmer resistor letting to configure the **balance of the duty cycle of the timer**. You will need an oscilloscope to adjust the balance of the lengths of the high and low part of the timer signal using the trimmer R1. The recommended value, if you cannot use an oscilloscope, is **270 Ω**.
 {: style="text-align: justify"}
 
-The cycle stepping for debugging is controlled by a 555 timer too, configured as bistable oscillator, and a push button that trigger the bistable to change. The speed is handled by R3 and C7, this combination controls the delay of the change, the delay should be enough to cancel the debounced effect when release the push button. Increasing R3 step up the delay which reduced the debounced effect but also reduced the response time of the push button, decreasing R3 step up the response speed but also decrements the cancellation of the debounce effect. 
+The cycle stepping for debugging is controlled by a 555 timer too, configured as **Bistable Oscillator**, and a push button that trigger the bistable to change. The speed of the oscillation is handled by R3 and C7, which controls the delay of the change. The delay should be enough to cancel the debounced effect produced by the push button release. Increasing R3 step up the delay which reduced the debounced effect but also reduced the response time of the push button, decreasing R3 step up the response speed but also decrements the cancellation of the debounce effect. 
 {: style="text-align: justify"}
 
->The recommended value for C4 is 470nF and for R3 is 470K to balance response time and debounced reduction.
+>The recommended value for C4 is 470nF and for R3 is 470K to create a good balance between response time and debounced reduction.
 {: style="text-align: justify"}
 
 ### Components
